@@ -9,4 +9,5 @@ end
 
 class SQLObject
   # Mixin Searchable here...
+  include Searchable
 end

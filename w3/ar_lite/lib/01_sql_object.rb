@@ -1,5 +1,6 @@
 require_relative 'db_connection'
 require 'active_support/inflector'
+require 'byebug'
 # NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
 # of this project. It was only a warm up.
 
@@ -32,7 +33,6 @@ class SQLObject
     contents = DBConnection.execute(<<-SQL)
     SELECT #{self.table_name}.* FROM #{self.table_name}
     SQL
-
     parse_all(contents)
   end
 
@@ -44,8 +44,8 @@ class SQLObject
     record = DBConnection.execute(<<-SQL, id)
       SELECT * FROM #{self.table_name} WHERE id = ?
     SQL
-
-    new(record)
+    return nil if record.empty?
+    new(record.first)
   end
 
   def initialize(params = {})
@@ -64,14 +64,37 @@ class SQLObject
   end
 
   def attribute_values
+    @attributes.values
   end
 
   def insert
+    col_names = self.class.columns.drop(1)
+    vals = self.attribute_values
+    q_marks = []
+    col_names.size.times { q_marks << '?' }
+
+    DBConnection.execute(<<-SQL, *vals)
+    INSERT INTO
+      #{self.class.table_name} (#{col_names.join(', ')})
+    VALUES
+      (#{q_marks.join(', ')})
+    SQL
+    self.id = DBConnection.last_insert_row_id
   end
 
   def update
+    col_names = self.class.columns.drop(1)
+    vals = self.attribute_values.drop(1)
+    q_marks = []
+    col_names.size.times { q_marks << '?' }
+    DBConnection.execute(<<-SQL, *vals)
+    UPDATE #{self.class.table_name}
+    SET #{col_names.join(' = ?, ').concat(' = ?')}
+    WHERE #{self.class.table_name}.id = #{self.id}
+    SQL
   end
 
   def save
+    self.id ? update : insert
   end
 end
