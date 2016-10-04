@@ -1,0 +1,13 @@
+<h1>Cats</h1>
+
+<ul>
+  <% @cats.each do |cat| %>
+    <li><%= cat.name %> is a <%= cat.color %> cat.</li>
+    <%= link_to 'Cat profile', "/cats/#{cat.id}" %>
+    <%= button_to "delete", "/cats/#{cat.id}", method: :delete %>
+    <!-- <%= button_to "edit", cats_url(cat), method: :edit %> -->
+    <br>
+  <% end %>
+</ul>
+<%= link_to "Rent a cat", new_cat_rental_request_url %>
+<%= link_to "Add a cat", "/cats/new" %>

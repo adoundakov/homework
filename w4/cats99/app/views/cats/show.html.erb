@@ -1,0 +1,24 @@
+<h1><%= @cat.name %></h1>
+<%= link_to "edit", edit_cat_url(@cat) %>
+
+<ul>
+  <% @cat.attributes.each do |key, value| %>
+    <li><%=key%>: <%= value %></li>
+    <br>
+  <% end %>
+</ul>
+
+<h3>Active Rental Requests</h3>
+<ul>
+  <% @cat.cat_rental_requests.each do |request| %>
+  <li><%= request.start_date %> to <%= request.end_date %> <%= request.status %>
+    <% if request.status == "PENDING" %>
+      <%= link_to "Approve", "/cat_rental_requests/#{request.id}/approve" %>
+      <%= link_to "Deny", "/cat_rental_requests/#{request.id}/deny" %>
+    <% end %>
+  </li>
+  <br />
+  <% end %>
+</ul>
+
+<%= link_to "All cats", cats_url %>
