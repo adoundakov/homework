@@ -37,7 +37,12 @@
 
 ## Week 4: Rails / HTML / CSS
 
-+ Day 1: [Library] and [HTML/CSS]
+[Link to gh-pages for HTML]
 
++ Day 1: [Library] and [HTML/CSS]
++ Day 2: [HTML Day 3]
+
+[Link to gh-pages for HTML]: http://adoundakov.github.io/homework
 [Library]: w4/library
 [HTML/CSS]: w4/html_css
+[HTML Day 3]: w4/html_css/alex_doundakov_recipe_day3.html
