@@ -1,18 +1,37 @@
 <h1><%= @cat.name %></h1>
 <%= link_to "edit", edit_cat_url(@cat) %>
 
-<ul>
-  <% @cat.attributes.each do |key, value| %>
-    <li><%=key%>: <%= value %></li>
-    <br>
-  <% end %>
-</ul>
+<h3>Cat Characteristics</h3>
+<table style="width:75%">
+  <tr>
+    <% @cat.attributes.each do |k, _| %>
+    <th>
+      <%= k %>
+    </th>
+    <% end %>
+  </tr>
+
+  <tr>
+    <% @cat.attributes.each do |_, v| %>
+    <td>
+      <%= v %>
+    </td>
+    <% end %>
+  </tr>
+</table>
 
 <h3>Active Rental Requests</h3>
 <ul>
   <% @cat.cat_rental_requests.each do |request| %>
-  <li><%= request.start_date %> to <%= request.end_date %> <%= request.status %>
+  <li><%= request.start_date %> to <%= request.end_date %>
+    <% if request.status == 'APPROVED' %>
+      <font color="#228B22"><%= request.status %></font>
+    <% end %>
+    <% if request.status == 'DENIED' %>
+      <font color="#8B0000"><%= request.status %></font>
+    <% end %>
     <% if request.status == "PENDING" %>
+      <font color="#CCCC00"> <%= request.status %> </font>
       <%= link_to "Approve", "/cat_rental_requests/#{request.id}/approve" %>
       <%= link_to "Deny", "/cat_rental_requests/#{request.id}/deny" %>
     <% end %>

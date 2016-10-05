@@ -37,17 +37,25 @@ class CatRentalRequest < ActiveRecord::Base
   end
 
   def overlapping_rentals
+    options = [self.cat_id, self.start_date, self.end_date, self.start_date, self.end_date]
+    CatRentalRequest.where(
+      "status != 'DENIED' AND
+        cat_id = ? AND
+          ((start_date BETWEEN ? AND ?)
+          OR (end_date BETWEEN ? AND ? ))", *options)
+  end
+  def overlapping_approved_rentals
     options = [self.id, self.cat_id, self.start_date, self.end_date, self.start_date, self.end_date]
     CatRentalRequest.where(
       "status = 'APPROVED' AND
-      id != ? AND 
+      id != ? AND
       cat_id = ? AND
           ((start_date BETWEEN ? AND ?)
           OR (end_date BETWEEN ? AND ? ))", *options)
   end
 
   def valid_rental_availability
-    unless overlapping_rentals.empty?
+    unless overlapping_approved_rentals.empty?
       errors[:cat] << "is not available for the date range selected."
     end
   end

@@ -5,9 +5,11 @@
     <li><%= cat.name %> is a <%= cat.color %> cat.</li>
     <%= link_to 'Cat profile', "/cats/#{cat.id}" %>
     <%= button_to "delete", "/cats/#{cat.id}", method: :delete %>
-    <!-- <%= button_to "edit", cats_url(cat), method: :edit %> -->
     <br>
   <% end %>
 </ul>
-<%= link_to "Rent a cat", new_cat_rental_request_url %>
-<%= link_to "Add a cat", "/cats/new" %>
+<%= button_to "Rent a cat", new_cat_rental_request_url , method: :get%>
+<%= button_to "Add a cat", "/cats/new" , method: :get%>
+
+<br />
+<img src="http://www.cutecatgifs.com/wp-content/uploads/2015/07/Cat-slots.gif">
