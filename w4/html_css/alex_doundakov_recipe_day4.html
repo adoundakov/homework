@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Alex Doundakov Walnut Muffins</title>
+    <meta name="Honey Walnut Muffins Recipe" content="The best recipe for delicious honey walnut muffins. Cinnamon sweet baked goodness to feed your addiction." />
+    <link rel="stylesheet" href="css_reset.css" type="text/css">
+    <script src="../../../curriculum/html-css/assets/external_javascript_example.js" type="text/javascript"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+
+    <header>
+      <img src="https://d3c5s1hmka2e2b.cloudfront.net/uploads/topic/image/4/appacademy.png" alt="App Academy Logo">
+      <nav>
+        <ul>
+          <li><a href="#Description">Description</a></li>
+          <li><a href="#Ingredients">Ingredients</a></li>
+          <li><a href="#Directions">Directions</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside>
+      <h2>Ingredients</h2>
+      <a name="Ingredients"></a>
+
+      <ul>
+        <li>3/4 cup chopped walnuts</li>
+        <li>1/3 cup plus 1 tbsp honey (in 2 portions)</li>
+        <li>1/2 teaspoon cinnamon</li>
+        <li>1-1/2 cups all-purpose flour</li>
+        <li>1-1/2 tsp baking powder</li>
+        <li>1/2 tsp salt</li>
+        <li>1 stick unsalted butter, room temperature</li>
+        <li>2/3 cup sugar</li>
+        <li>2 large eggs</li>
+        <li>1/2 cup mashed banana, preferably from an overripe banana</li>
+        <li>1 tsp vanilla extract</li>
+        <li>1/3 cup whole milk</li>
+      </ul>
+    </aside>
+
+    <section>
+      <h2>Honey Walnut Muffins<h2>
+
+        <figure>
+          <img src="http://www.onceuponachef.com/images/2011/02/banana-honey-muffins1.jpg">
+          <figcaption>
+            <a href="https://en.wikipedia.org/wiki/Muffin">more on muffins</a>
+          </figcaption>
+        </figure>
+
+        <h2>Description</h2>
+        <a name="Description"></a>
+        <p>
+          Muffins are a sweet or savory treat that originate from the US.
+          This recipe from <a href="http://www.onceuponachef.com/2011/02/banana-honey-walnut-muffins.html">Once Upon a Chef</a> is one of the best I have ever tried.
+          Each serving yields about 12 muffins.
+        </p>
+
+        <h2>Directions</h2>
+        <a name="Directions"></a>
+        <ol>
+          <li>
+            Preheat oven to 350&deg;F. Spray a muffin tin with cooking spray, then line with paper liners.
+          </li>
+          <li>
+            In a small bowl, toss nuts with 1 tbsp of the honey and cinnamon until evenly coated.
+          </li>
+          <li>
+            In a medium bowl, whisk together the flour, baking powder, and salt. Set aside.
+          </li>
+          <li>
+            In a large bowl, beat butter with sugar and remaining 1/3 cup of honey until fluffy (2-3 minutes).
+            Scrape down the sides of the bowl if necessary. Add the eggs, one at a time, and beat until fully incorporated between additions.
+            Beat in banana and vanilla. At low speed, add dry ingredients in 2 batches, alternating with the milk.
+          </li>
+          <li>
+            Spoon batter into prepared muffin tin and sprinkle with the nut topping. Bake muffins until tops are golden and a toothpick inserted in the center comes out clean.
+            This should take about 30 minutes, then let the muffins cool for about 10 minutes in the pan.
+            Turn out the muffins onto a rack and let them cool for at least 15 minutes before serving.
+          </li>
+        </ol>
+      </section>
+
+      <section id="reviews">
+        <h2>Reviews</h2>
+          <form id="review-form" action="/reviews" method="post">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name">
+
+            <label for="rating">Rating</label>
+            1<input type="radio" name="rating" value="1" checked>
+            2<input type="radio" name="rating" value="2">
+            3<input type="radio" name="rating" value="3">
+            4<input type="radio" name="rating" value="4">
+            5<input type="radio" name="rating" value="5">
+
+            <label for="expertise">Cooking Expertise</label>
+
+            <select id="expertise" name="expertise">
+              <option value="Select Cooking Expertise" disabled="true" selected="true">
+                Select Cooking Experise
+              </option>
+              <option value="Sometimes Cook">Sometimes Cook</option>
+              <option value="Cook Everyday">Cook Everyday</option>
+              <option value="Cooking is a Hobby">Cooking is a Hobby</option>
+              <option value="Professional Chef">Professional Chef</option>
+            </select>
+
+            <label>Review
+              <textarea id="review" name="review" cols="30" rows="10"></textarea>
+            </label>
+
+          <input type="submit" value="Submit Review">
+        </form>
+      </section>
+
+      <footer>
+        <p>
+          This recipe originated from a food blog I follow called OnceUponaChef, I highly recommend you go to
+          <a href="http://www.onceuponachef.com">her site</a> and browse some of the recipes, all of which are quite delicious.
+        </p>
+      </footer>
+  </body>
+</html>
