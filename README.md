@@ -41,8 +41,11 @@
 
 + Day 1: [Library] and [HTML/CSS]
 + Day 2: [HTML Day 3]
++ Day 3: [HTML Day 4] and [Rails Auth]
 
 [Link to gh-pages for HTML]: http://adoundakov.github.io/homework
 [Library]: w4/library
 [HTML/CSS]: w4/html_css
 [HTML Day 3]: w4/html_css/alex_doundakov_recipe_day3.html
+[HTML Day 4]: w4/html_css/alex_doundakov_recipe_day4.html
+[Rails Auth]: w4/auth_hw
