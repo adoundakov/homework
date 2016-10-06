@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       login!(user)
+      UserMailer.welcome_email(user).deliver
       redirect_to cats_url
     else
       render :new

@@ -35,3 +35,9 @@
 <% if @cat.owner != current_user %>
   <%= button_to "Rent #{@cat.name} today!", new_cat_rental_request_url, method: :get %>
 <% end %>
+
+<% content_for :footer do %>
+  <p>
+    This is the show page
+  </p>
+<% end %>

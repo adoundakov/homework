@@ -8,10 +8,16 @@
     </label>
     <br>
     <label>Password
-      <input type="text" name="user[password]">
+      <input type="password" name="user[password]">
     </label>
 
     <br>
     <%= button_to 'Take me to the cats!', users_url %>
   </form>
 </body>
+
+<% content_for :footer do %>
+  <p>
+    Here is where new users sign up!
+  </p>
+<% end %>
