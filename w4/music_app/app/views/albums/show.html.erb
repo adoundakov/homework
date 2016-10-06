@@ -1,7 +1,7 @@
 <h2><%= @album.title %></h2>
 
 <%= link_to 'Back to band', band_url(@album.band) %>
-
+<br>
 <% if flash.now[:errors] %>
   <% flash.now[:errors].each do |error| %>
     <font color='#FF0000'><%= error %></font>
@@ -12,7 +12,7 @@
 Tracks on album:
 <br>
 <% @album.tracks.each do |track| %>
-  <%= link_to track.title, track_url(track) %>
+  <%= link_to track.title, track_url(track) %> <br>
 <% end %>
 
 <%= button_to 'Edit Album', edit_album_url(@album), method: :get %>

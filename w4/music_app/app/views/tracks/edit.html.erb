@@ -36,7 +36,10 @@
     <input id='track_type_regular' type="radio" name="track[track_type]" value="regular" <%= 'checked' if @track.track_type == 'regular' %>>
   </label>
   <br>
-
+  <label>Lyrics: <br>
+    <textarea name="track[lyrics]" rows="8" cols="40"> <%= @track.lyrics %> </textarea>
+  </label>
+  <br>
   <input type="submit" name="Save Changes" value="Save Changes">
 </form>
 <br>

@@ -19,6 +19,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 6, allow_nil: true}
   validates :email, uniqueness: true
 
+  has_many :notes
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64
   end

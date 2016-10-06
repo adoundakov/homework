@@ -1,5 +1,5 @@
 <h2>New Track!</h2>
-<%= link_to 'Back to bands', bands_url %>
+<%= link_to 'Back to bands', bands_url %> <br>
 <% if flash.now[:errors] %>
   <% flash.now[:errors].each do |error| %>
     <font color='#FF0000'><%= error %></font>
@@ -31,6 +31,10 @@
     <input id='track_type_regular' type="radio" name="track[track_type]" value="regular">
   </label>
   <br>
+
+  <label>Lyrics: <br>
+    <textarea name="track[lyrics]" rows="8" cols="40"></textarea>
+  </label>
 
   <input type="submit" name="Create Track" value="Create Track">
 </form>

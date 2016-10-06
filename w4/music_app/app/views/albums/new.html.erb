@@ -18,7 +18,9 @@
     <select name="album[band_id]">
       <option>Select a Band</option>
       <% Band.all.each do |band| %>
-        <option value=" <%= band.id %> "> <%= band.name %> </option>
+        <option value="<%= band.id %>" <%= 'selected' if band.id == params[:band_id].to_i%>>
+          <%= band.name %>
+        </option>
       <% end %>
     </select>
   </label>
@@ -33,7 +35,12 @@
   <br>
 
   <label>Genre
-    <input type="text" name="album[genre]">
+    <select name="album[genre]">
+      <option>Select a Genre</option>
+      <% Album::Genres.each do |genre| %>
+        <option value="<%= genre %>"><%= genre %></option>
+      <% end %>
+    </select>
   </label>
   <br>
 
