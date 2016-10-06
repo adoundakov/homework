@@ -6,6 +6,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <% if current_user %>
+      <%= current_user.email %> <br>
+      <%= button_to 'Logout', session_url, method: :delete %>
+    <% end %>
+
+    <font color='#008000'><%= flash.now[:success] if flash.now[:success] %></font>
   </head>
 
   <body>

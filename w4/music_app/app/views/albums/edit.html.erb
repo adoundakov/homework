@@ -1,0 +1,49 @@
+<h2>Edit <%= @album.title %></h2>
+<%= link_to 'Back to bands', bands_url %>
+<%= link_to 'Back to album', album_url(@album) %>
+
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+    <font color='#FF0000'><%= error %></font>
+    <br>
+  <% end %>
+<% end %>
+
+<form action='<%= album_url(@album) %>' method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="patch">
+
+  <label>Title
+    <input type="text" name="album[title]" value=" <%= @album.title %>">
+  </label>
+  <br>
+
+  <label>Band
+    <select name="album[band_id]">
+      <option>Select a Band</option>
+      <% Band.all.each do |band| %>
+        <option value=" <%= band.id %> "
+                <%= 'selected' if @album.band_name == band.name %>>
+                  <%= band.name %>
+        </option>
+      <% end %>
+    </select>
+  </label>
+  <br>
+
+  <label>Production Type
+    <label for="alb_prod_type_studio">Studio</label>
+    <input id='alb_prod_type_studio' type="radio" name="album[production_type]" value="studio" <%= 'checked' if @album.production_type == 'studio' %>>
+    <label for="alb_prod_type_live">Live</label>
+    <input id='alb_prod_type_live' type="radio" name="album[production_type]" value="live" <%= 'checked' if @album.production_type == 'live' %>>
+  </label>
+  <br>
+
+  <label>Genre
+    <input type="text" name="album[genre]" value=" <%= @album.genre %> ">
+  </label>
+  <br>
+
+  <input type="submit" name="Save Changes" value="Save Changes">
+</form>
+<br>

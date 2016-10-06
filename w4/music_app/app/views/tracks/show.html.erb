@@ -1,0 +1,22 @@
+<h2><%= @track.title %></h2>
+
+<%= link_to 'Back to bands', bands_url %>
+<%= link_to 'Back to band', band_url(@track.band) %>
+<%= link_to 'Back to album', album_url(@track.album) %>
+
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+    <font color='#FF0000'><%= error %></font>
+    <br>
+  <% end %>
+<% end %>
+<br>
+Track Info:
+<br>
+album: <%= @track.album_name %> <br>
+track type: <%= @track.track_type %> <br>
+artist: <%= @track.band_name %> <br>
+lyrics: <br>
+<%= @track.lyrics %>
+
+<%= button_to 'Edit track', edit_track_url(@track), method: :get %>

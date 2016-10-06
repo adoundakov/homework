@@ -1,0 +1,42 @@
+<h2>New Album!</h2>
+<%= link_to 'Back to bands', bands_url %>
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+    <font color='#FF0000'><%= error %></font>
+    <br>
+  <% end %>
+<% end %>
+
+<form action='<%= albums_url %>' method="post">
+  <%= auth_token %>
+  <label>Title
+    <input type="text" name="album[title]">
+  </label>
+  <br>
+
+  <label>Band
+    <select name="album[band_id]">
+      <option>Select a Band</option>
+      <% Band.all.each do |band| %>
+        <option value=" <%= band.id %> "> <%= band.name %> </option>
+      <% end %>
+    </select>
+  </label>
+  <br>
+
+  <label>Production Type
+    <label for="alb_prod_type_studio">Studio</label>
+    <input id='alb_prod_type_studio' type="radio" name="album[production_type]" value="studio">
+    <label for="alb_prod_type_live">Live</label>
+    <input id='alb_prod_type_live' type="radio" name="album[production_type]" value="live">
+  </label>
+  <br>
+
+  <label>Genre
+    <input type="text" name="album[genre]">
+  </label>
+  <br>
+
+  <input type="submit" name="Create band" value="Create band">
+</form>
+<br>

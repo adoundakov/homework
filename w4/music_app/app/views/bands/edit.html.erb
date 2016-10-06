@@ -1,0 +1,22 @@
+<h2>Edit <%= @band.name %>!</h2>
+
+<%= link_to 'Back to band', band_url(@band) %>
+<%= link_to 'Back to bands', bands_url %>
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+    <font color='#FF0000'><%= error %></font>
+    <br>
+  <% end %>
+<% end %>
+
+<form action='<%= band_url(@band) %>' method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="patch">
+  <label>Name
+  <input type="text" name="band[name]" value=" <%= @band.name %>">
+  </label>
+  <br>
+
+  <input type="submit" name="Save Changes" value="Save Changes">
+</form>
+<br>

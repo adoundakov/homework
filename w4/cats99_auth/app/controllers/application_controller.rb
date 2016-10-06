@@ -25,14 +25,14 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless current_user
-      flash[:error] = "You must be logged in to access this section"
+      flash[:errors] = "You must be logged in to access this section"
       redirect_to '/'
     end
   end
 
   def already_logged_in?
     if current_user
-      flash[:error] = "You're already logged in, you dingus!"
+      flash[:errors] = "You're already logged in, you dingus!"
       redirect_to cats_url
     end
   end

@@ -1,0 +1,19 @@
+<h2><%= @band.name %></h2>
+
+<%= link_to 'Back to bands', bands_url %>
+
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+    <font color='#FF0000'><%= error %></font>
+    <br>
+  <% end %>
+<% end %>
+<br>
+Albums by this band:
+<br>
+<% @band.albums.each do |album| %>
+  <%= link_to album.title, album_url(album) %>
+<% end %>
+
+<%= button_to 'Create Album', new_band_album_url(@band), method: :get %>
+<%= button_to 'Edit Band', edit_band_url(@band), method: :get %>

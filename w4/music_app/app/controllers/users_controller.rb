@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  before_action :logged_in?, :authorized?, only: [:show]
+  before_action :already_logged_in?, only: [:create, :new]
+
+
   def new
   end
 
@@ -7,10 +12,9 @@ class UsersController < ApplicationController
     if user.save
       login!(user)
       flash.now[:success] = "Account created! Enjoy the music."
-      redirect_to users_url(user)
+      redirect_to user_url(user)
     else
-      flash.now[:errors] = []
-      flash.now[:errors] << user.errors.full_messages
+      flash.now[:errors] = user.errors.full_messages
       render :new
     end
   end
@@ -21,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:email, :password)
   end
 end

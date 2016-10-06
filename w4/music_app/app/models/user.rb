@@ -23,8 +23,8 @@ class User < ApplicationRecord
     SecureRandom::urlsafe_base64
   end
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by_username(username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by_email(email)
     return user if user && user.is_password?(password)
     nil
   end
@@ -44,6 +44,6 @@ class User < ApplicationRecord
 
   def is_password?(password)
     db_pass = BCrypt::Password.new(self.password_digest)
-    dp_pass.is_password?(password)
+    db_pass.is_password?(password)
   end
 end
