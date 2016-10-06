@@ -1,0 +1,22 @@
+<img src="http://www.glitterbucket.com/wp-content/uploads/2015/10/Welcome-Glitter-Cat-Graphic.gif" alt="" />
+
+<div class="loader"></div>
+
+<body>
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>Username
+      <input type="text" name="user[username]">
+    </label>
+    <br>
+    <label>Password
+      <input type="text" name="user[password]">
+    </label>
+    <br>
+    <input type="submit" name="Log In">
+    <br>
+  </form>
+  New User?
+  <br>
+  <%= button_to 'Sign Up', new_user_url , method: :get %>
+</body>

@@ -1,0 +1,17 @@
+<h1>Sign Up!</h1>
+
+<body>
+  <form action=" <%= users_url %>" method="post">
+
+    <label>Username
+      <input type="text" name="user[username]">
+    </label>
+    <br>
+    <label>Password
+      <input type="text" name="user[password]">
+    </label>
+
+    <br>
+    <%= button_to 'Take me to the cats!', users_url %>
+  </form>
+</body>
