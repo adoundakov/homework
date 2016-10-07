@@ -59,4 +59,8 @@ class User < ApplicationRecord
   def promote!
     toggle!(:admin)
   end
+
+  def activate!
+    toggle!(:activated)
+  end
 end

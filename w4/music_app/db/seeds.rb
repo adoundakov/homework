@@ -9,20 +9,21 @@ require 'faker'
 
 100.times { User.create!(email: Faker::Internet.safe_email, password: Faker::Internet.password(6, 10), activated: true) }
 
-20.times do
+100.times do
+  p "creating album"
   Band.create!(name: Faker::Book.author)
 end
 
-30.times do
-  band_id = rand(20) + 1
+300.times do
+  band_id = rand(100) + 1
   genre = Album::Genres.sample
   production_type = ['live', 'studio'].sample
   p "making albums with band id #{band_id}"
   Album.create!(title: Faker::Book.title, band_id: band_id, genre: genre, production_type: production_type)
 end
 
-75.times do
-  album_id = rand(30) + 1
+500.times do
+  album_id = rand(300) + 1
   type = ['bonus', 'regular'].sample
   title = Faker::Book.title
   lyrics = Faker::Lorem.sentences.join("\n")
@@ -30,8 +31,8 @@ end
   Track.create!(track_type: type, album_id: album_id, title: title, lyrics: lyrics)
 end
 
-250.times do
-  t_id = rand(75) + 1
+1000.times do
+  t_id = rand(500) + 1
   body = Faker::Lorem.sentence(3)
   u_id = rand(100) + 1
   p "making notes with tid #{t_id} and uid #{u_id}"

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :index]
 
   get '/users/:id/promote', to: 'users#promote'
+  get '/activate', to: 'users#activate'
 
   resource :session, only: [:new, :create, :destroy]
 

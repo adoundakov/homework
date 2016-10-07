@@ -36,6 +36,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'annotate'
   gem 'faker'
+  gem 'letter_opener'
 end
 
 group :development do
