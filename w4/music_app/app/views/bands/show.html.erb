@@ -12,8 +12,11 @@
 Albums by this band:
 <br>
 <% @band.albums.each do |album| %>
-  <%= link_to album.title, album_url(album) %>
+  <%= link_to album.title, album_url(album) %> <br>
 <% end %>
+<br><br>
 
-<%= button_to 'Create Album', new_band_album_url(@band), method: :get %>
-<%= button_to 'Edit Band', edit_band_url(@band), method: :get %>
+<% if current_user.admin %>
+  <%= button_to 'Create Album', new_band_album_url(@band), method: :get %>
+  <%= button_to 'Edit Band', edit_band_url(@band), method: :get %>
+<% end %>

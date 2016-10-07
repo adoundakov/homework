@@ -26,4 +26,6 @@ Notes:
 <br>
 <%= render 'notes/note', track: @track %>
 <br>
-<%= button_to 'Edit track', edit_track_url(@track), method: :get %>
+<% if current_user.admin %>
+  <%= button_to 'Edit track', edit_track_url(@track), method: :get %>
+<% end %>

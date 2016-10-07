@@ -1,0 +1,8 @@
+<h1>User List</h1>
+
+<% User.all.each do |user| %>
+  email: <%= user.email %> | activated: <%= user.activated %> | admin: <%= user.admin %>
+  <% if current_user.admin %>
+    <%= button_to 'Promote', "/users/#{user.id}/promote", method: :get %>
+  <% end %>
+<% end %>

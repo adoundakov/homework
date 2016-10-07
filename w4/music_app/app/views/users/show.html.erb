@@ -1,5 +1,19 @@
 <h2>Welcome!</h2>
-
 <%= current_user.email %>
 <br>
-<%= link_to 'Browse bands', bands_url %>
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+    <font color='#FF0000'><%= error %></font>
+    <br>
+  <% end %>
+<% end %>
+<br>
+<% if current_user.admin %>
+  <%= link_to 'Browse Users', users_url %> <br>
+  <%= link_to 'Browse Bands', bands_url %> <br>
+  <%= link_to 'Browse Albums', albums_url %> <br>
+  <%= link_to 'Browse Tracks', tracks_url %> <br>
+  <%= link_to 'Browse Notes', notes_url %> <br>
+<% else %>
+  <%= link_to 'Browse Bands', bands_url %> <br>
+<% end %>

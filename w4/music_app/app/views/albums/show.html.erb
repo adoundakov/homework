@@ -9,11 +9,17 @@
   <% end %>
 <% end %>
 <br>
+Artist: <%= @album.band_name %>
+<br>
+<br>
 Tracks on album:
 <br>
 <% @album.tracks.each do |track| %>
   <%= link_to track.title, track_url(track) %> <br>
 <% end %>
+<br><br><br>
 
-<%= button_to 'Edit Album', edit_album_url(@album), method: :get %>
-<%= button_to 'Create Track', new_album_track_url(@album), method: :get %>
+<% if current_user.admin %>
+  <%= button_to 'Edit Album', edit_album_url(@album), method: :get %>
+  <%= button_to 'Create Track', new_album_track_url(@album), method: :get %>
+<% end %>

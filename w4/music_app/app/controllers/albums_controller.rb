@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
 
   before_action :logged_in?
+  before_action :is_admin?, except: [:show]
 
   def new
   end
@@ -46,6 +47,9 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     render :show
+  end
+
+  def index
   end
 
   private

@@ -15,4 +15,12 @@ class Note < ApplicationRecord
 
   belongs_to :user
   belongs_to :track
+
+  def track_name
+    self.track.title
+  end
+
+  def user_email
+    self.user.email
+  end
 end

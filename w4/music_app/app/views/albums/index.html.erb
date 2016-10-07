@@ -1,0 +1,10 @@
+<h1>Album List</h1>
+
+<% Album.all.each do |album| %>
+  title: <%= album.title %> | band: <%= album.band.name %> | genre: <%= album.genre %>
+  <% if current_user.admin %>
+    <%= button_to 'Edit', edit_album_url(album) , method: :get %>
+    <%= button_to 'Delete', album_url(album) , method: :delete %>
+    <br>
+  <% end %>
+<% end %>

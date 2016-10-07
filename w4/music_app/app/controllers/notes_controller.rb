@@ -22,14 +22,10 @@ class NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
-
-    unless current_user == @note.user
-      flash[:errors] = "Nuh Uh! Stop hacking the site."
+    if !(current_user == @note.user || current_user.admin)
+      flash[:errors] = ["Nuh Uh! Stop hacking the site."]
       redirect_to track_url(@note.track_id)
-      return
-    end
-
-    if @note.destroy
+    elsif @note.destroy
       flash[:success] = 'Note deleted successfully'
       redirect_to track_url(@note.track_id)
     else

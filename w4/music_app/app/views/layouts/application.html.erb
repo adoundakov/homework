@@ -9,6 +9,7 @@
 
     <% if current_user %>
       <%= current_user.email %> <br>
+      <%= button_to 'Profile', user_url(current_user), method: :get %>
       <%= button_to 'Logout', session_url, method: :delete %>
     <% end %>
 

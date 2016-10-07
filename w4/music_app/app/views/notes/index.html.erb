@@ -1,0 +1,8 @@
+<h1>Note List</h1>
+
+<% Note.all.each do |note| %>
+  user: <%= note.user_email %> | track: <%= note.track_name %> | body: <%= note.body %>
+  <% if current_user.admin %>
+    <%= button_to 'Delete', track_note_url(note.track_id, note) , method: :delete %>
+  <% end %>
+<% end %>

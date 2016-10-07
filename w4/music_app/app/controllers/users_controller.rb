@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :logged_in?, :authorized?, only: [:show]
   before_action :already_logged_in?, only: [:create, :new]
-
+  before_action :is_admin?, only: [:index, :promote]
 
   def new
   end
@@ -19,7 +19,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    render :index
+  end
+
   def show
+  end
+
+  def promote
+    user = User.find(params[:id])
+
+    user.promote!
+    flash[:success] = 'User promoted to admin!'
+    redirect_to users_url
   end
 
   private

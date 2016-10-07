@@ -1,7 +1,7 @@
 <h2>Bands:</h2>
 
 <% Band.all.each do |band| %>
-  <%= link_to band.name, band_url(band) %> <br>
+  <%= link_to band.name, band_url(band) %> <%= button_to 'Delete', band_url(band), method: :delete  if current_user.admin %> <br>
 <% end %>
 <br><br>
-<%= button_to 'Create a Band', new_band_url, method: :get %>
+<%= button_to 'Create a Band', new_band_url, method: :get if current_user.admin %>
