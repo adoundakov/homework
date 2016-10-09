@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/users/:id/promote', to: 'users#promote'
   get '/activate', to: 'users#activate'
+  get '/search', to: 'users#search'
 
   resource :session, only: [:new, :create, :destroy]
 

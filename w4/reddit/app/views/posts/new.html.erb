@@ -1,0 +1,25 @@
+<h1>Post in <%= @sub.title %></h1>
+
+<form action= "<%= sub_posts_url %>" method="post">
+  <input type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>" >
+
+  <label>Subs to post to: (one per line)
+    <textarea name="post[sub_names]"></textarea>
+  </label>
+
+  <label>Title
+    <input type="text" name="post[title]">
+  </label>
+
+  <label>Url (optional)
+    <input type="text" name="post[url]">
+  </label>
+
+  <label>Content
+    <textarea name="post[content]"></textarea>
+  </label>
+
+  <input type="submit" name="Create Post" value="Create Post">
+</form>

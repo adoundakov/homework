@@ -1,0 +1,16 @@
+<h4>Search: </h4>
+Type your query like 'attribute:value', no spaces in values!
+<form action="<%= search_url %>" method="get">
+  <%= auth_token %>
+  <select name="search[model]">
+    <option>Select a Category</option>
+    <option>Band</option>
+    <option>Album</option>
+    <option>Track</option>
+    <option>Note</option>
+  </select>
+
+  <input type="text" name="search[input]">
+  <input type="submit" name="Search" value="Search">
+</form>
+<br>

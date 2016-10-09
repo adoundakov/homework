@@ -1,0 +1,6 @@
+<h1>Welcome to, r/<%= @sub.title %></h1>
+
+<%= link_to 'Edit Sub', edit_sub_url %><br>
+<% @sub.posts.each do |post| %>
+  <%= link_to post.title, post_url(post) %><br>
+<% end %>

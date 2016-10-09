@@ -11,6 +11,7 @@
       <%= current_user.email %> <br>
       <%= button_to 'Profile', user_url(current_user), method: :get %>
       <%= button_to 'Logout', session_url, method: :delete %>
+      <%= render 'shared/search' %>
     <% end %>
 
     <font color='#008000'><%= flash.now[:success] if flash.now[:success] %></font>

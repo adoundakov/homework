@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  # before_action :logged_in?, :authorized?, only: [:show]
-  # before_action :already_logged_in?, only: [:create, :new]
-  # before_action :is_admin?, only: [:index, :promote]
+  before_action :logged_in?, :authorized?, only: [:show, :search]
+  before_action :already_logged_in?, only: [:create, :new]
+  before_action :is_admin?, only: [:index, :promote]
 
   def new
   end
@@ -49,9 +49,48 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    query = parse_search
+
+    # TODO: make each case search methods, or one general search method.
+    # parse_search works, just need to implement model level search
+    case search_params[:model]
+    when 'Band'
+      @results = Band.find_by()
+    when 'Album'
+    when 'Track'
+    when 'Note'
+    else
+      flash[:errors] = ['Something went wrong, please try again']
+      redirect_to user_url(current_user)
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def search_params
+    params.require(:search).permit(:model, :input)
+  end
+
+  def parse_search(search_params)
+    query = {}
+
+    parts = search_params[:input].split(' ')
+    parts.map! { |part| part.split(':') }
+
+    parts.each_with_index do |part|
+      key, val = part
+      if key.include?('id')
+        query[key.to_sym] = val.to_i
+      else
+        query[key.to_sym] = val
+      end
+    end
+
+    searchify(query)
   end
 end

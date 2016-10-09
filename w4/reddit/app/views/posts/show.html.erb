@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+<%= link_to 'Link', @post.url %>
+<br>
+
+<br>
+<%= @post.content %>
+
+<br>
+<%= link_to 'create comment', new_post_comment_url(@post)%>
+
+<br>
+<%= render "comments/form", comments: @post.comments %>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reddit</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <%= button_to "Log Out", session_url, method: :delete if current_user %>
+  <%= button_to "Profile", user_url(current_user), method: :get if current_user %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<h1>Edit Comment</h1>
+
+<form action= "<%= comment_url(@comment) %>" method="post">
+  <input type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>" >
+
+  <input type="hidden" name="_method" value="patch">
+  <label>Content
+    <textarea name="comment[content]"></textarea>
+  </label>
+
+  <input type="submit" name="Save Comment" value="Save Comment">
+</form>
