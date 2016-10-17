@@ -1,0 +1,80 @@
+body {
+  font-family: Arial,sans-serif;
+  background: lavender;
+  margin: 0 auto;
+  width: 900px;
+}
+h1 {
+  font-size: 38px;
+}
+h2 {
+  font-size: 32px;
+}
+aside {
+  float: left; /* only way I could get the aside on the left */
+  width: 280px;
+  margin-right: 15px;
+}
+.ingredients-list {
+  color: indigo;
+  list-style: square inside;
+  margin: 15px 0;
+}
+header > img {
+  width: 100px;
+}
+ul li a {
+  text-decoration: none;
+}
+input:last-child {
+  /* Wanted to do gold, but doesn't look good on page */
+  background: #b666d2;
+}
+input:last-child:hover {
+  -webkit-filter: brightness(85%);
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  width: 27px;
+  height: 27px;
+  background-image: url(stars.png);
+  vertical-align: bottom;
+}
+
+input[type='radio']:checked {
+  background-position: 30px 30px;
+}
+ol {
+  font-style: italic;
+}
+ol li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+ol li:nth-of-type(2n) {
+  background-color: thistle;
+}
+
+h2 + .user_review {
+  border-top: 1px solid black;
+}
+
+nav {
+  display: inline-block;
+}
+
+nav li {
+  display: inline-block;
+  margin: 20px;
+}
+select {
+  margin: 15px;
+}
+input[type="text"] {
+  margin: 15px;
+}
+textarea {
+  width: 350px;
+  height: 150px;
+}
